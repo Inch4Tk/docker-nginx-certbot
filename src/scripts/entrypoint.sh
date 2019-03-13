@@ -8,7 +8,12 @@ trap "kill 0" EXIT
 . $(cd $(dirname $0); pwd)/util.sh
 
 # Make sure that all volumes are mounted
-sleep 5
+echo "Wait for volume to be existing"
+while [ ! -d "/etc/letsencrypt/" ]; do
+    echo "Waiting..."
+    sleep 1
+done
+echo "Okay, we found the volume."
 
 # Immediately run auto_enable_configs so that nginx is in a runnable state
 auto_enable_configs

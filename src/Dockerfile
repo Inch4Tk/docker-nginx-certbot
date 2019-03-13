@@ -1,7 +1,7 @@
 FROM nginx
 LABEL maintainer="Elliot Saba <staticfloat@gmail.com>, Valder Gallo <valergallo@gmail.com>, Bruno Zell <bruno.zzell@gmail.com>"
 
-VOLUME /etc/letsencrypt
+# VOLUME /etc/letsencrypt
 EXPOSE 80
 EXPOSE 443
 
