@@ -14,8 +14,11 @@ set -x
 # Start up nginx, save PID so we can reload config inside of run_certbot.sh
 nginx -g "daemon off;" &
 export NGINX_PID=$!
-service nginx status
 set +x
+
+# Wait for nginx to finish loading
+sleep 2
+service nginx status
 
 # Lastly, run startup scripts
 for f in /scripts/startup/*.sh; do
